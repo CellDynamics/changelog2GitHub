@@ -22,8 +22,8 @@ typeconvert = {	'update': 'U',
 				'add':'F'}
 
 if len(sys.argv)!=2:
-	print "Wrong number of arguments"
-	print "changelog2GitHub.py /path/to/changes.xml"
+	print("Wrong number of arguments")
+	print("changelog2GitHub.py /path/to/changes.xml")
 	exit(1)
 
 # get file name
@@ -35,16 +35,16 @@ e = ET.parse(changelog).getroot()
 releases = list(list(e)[1])
 latest_issues = list(releases[0]) # list of issues
 
-print bcolors.OKBLUE + bcolors.BOLD + "Doing " + str(latest_issues.__len__()) + " entries for tag " + releases[0].get("version") + bcolors.ENDC
+print(bcolors.OKBLUE + bcolors.BOLD + "Doing " + str(latest_issues.__len__()) + " entries for tag " + releases[0].get("version") + bcolors.ENDC)
 print 
-print bcolors.FAIL+"---->"+bcolors.ENDC
+print(bcolors.FAIL+"---->"+bcolors.ENDC)
 
-print "This release fixes:"
+print("This release fixes:")
 print
 for texts in latest_issues:
 	issue = texts.get("issue")
 	type = texts.get("type")
-	print " * __["+typeconvert.get(type)+"]__ #" + str(issue) + " " +texts.text.rstrip().lstrip() 
+	print(" * __["+typeconvert.get(type)+"]__ #" + str(issue) + " " +texts.text.rstrip().lstrip())
 print
-print "_Legend: [B] - bugfix, [F] - feature added, [U] - update or enhancement_"
-print bcolors.FAIL+"<----"+bcolors.ENDC
+print("_Legend: [B] - bugfix, [F] - feature added, [U] - update or enhancement_")
+print (bcolors.FAIL+"<----"+bcolors.ENDC)
