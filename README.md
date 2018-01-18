@@ -49,4 +49,5 @@ This release fixes:
  * __[U]__ # QuimP-API: Added new types of controls in QWindowBuilder.
  * __[B]__ # QuimP-BOA: Fixed possible exception when Add Cell button was used without ROI. Also fixed empty error window when wrong file was loaded.
  * __[U]__ # QuimP-RandomWalk: Changed UI to horizontal.
+ 
 _Legend: [B] - bugfix, [F] - feature added, [U] - update or enhancement_
